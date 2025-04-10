@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Buying Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        
+        .section-heading {
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .spec-table tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .spec-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-table td, .spec-table th {
+            padding: 12px 15px;
+        }
+        
+        .spec-table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .device-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .device-card:hover .device-overlay {
+            opacity: 1;
+        }
+        
+        .device-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(59, 130, 246, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark) transparent transparent transparent;
+        }
+        
+        .comparison-slider {
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #e5e7eb;
+        }
+        
+        .comparison-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .comparison-slider::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 3px;
+        }
+        
+        .comparison-slider::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .btn-scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+        
+        .btn-scroll-top.visible {
+            opacity: 1;
+        }
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">The Ultimate Guide to Buying Tech</h1>
+                <p class="text-xl mb-8">Everything You Need to Know, Explained Simply</p>
+                <p class="text-lg">Whether you're a gamer, a student, a professional, or just need a reliable device, this guide will help you choose the perfect laptop or iPhone with all the accessories you need.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-8 section-heading">Table of Contents</h2>
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="card bg-blue-50 p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="tech-icon">
+                            <i class="fas fa-laptop text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">Laptop Essentials</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#ram" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-memory mr-2"></i> RAM & Multitasking</a></li>
+                            <li><a href="#storage" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-hdd mr-2"></i> Storage Types</a></li>
+                            <li><a href="#processor" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-microchip mr-2"></i> Processors</a></li>
+                            <li><a href="#graphics" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-desktop mr-2"></i> Graphics Cards</a></li>
+                            <li><a href="#display" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-tv mr-2"></i> Display Options</a></li>
+                            <li><a href="#ports" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-plug mr-2"></i> Ports & Connectivity</a></li>
+                            <li><a href="#keyboards" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-keyboard mr-2"></i> Keyboards & Security</a></li>
+                        </ul>
+                    </div>
+                    <div class="card bg-purple-50 p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tech-icon">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">iPhone Essentials</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#iphone-storage" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-database mr-2"></i> Storage Options</a></li>
+                            <li><a href="#battery" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-battery-full mr-2"></i> Battery Health</a></li>
+                            <li><a href="#iphone-display" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-mobile-screen mr-2"></i> Display Technology</a></li>
+                        </ul>
+                    </div>
+                    <div class="card bg-green-50 p-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="tech-icon">
+                            <i class="fas fa-headphones text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">Accessories & Tips</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#monitors" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-desktop mr-2"></i> External Monitors</a></li>
+                            <li><a href="#cooling" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-fan mr-2"></i> Cooling Solutions</a></li>
+                            <li><a href="#docking" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-plug mr-2"></i> Docking Stations</a></li>
+                            <li><a href="#buying-tips" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-lightbulb mr-2"></i> Buying Tips</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laptop Basics Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 section-heading" data-aos="fade-up">Part 1: Understanding Laptop Basics</h2>
+                
+                <!-- RAM Section -->
+                <div id="ram" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-memory text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">RAM (Random Access Memory) – The Multitasking Power</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="mb-4">RAM is like your device's short-term memory. It holds data for apps and tasks you're using right now. More RAM = smoother multitasking.</p>
+                        
+                        <h4 class="text-xl font-semibold mb-4">RAM Sizes & Examples:</h4>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">4GB</h5>
+                                <p class="text-gray-700 mb-2">Basic tasks (browsing, Netflix, Word)</p>
+                                <p class="text-sm text-gray-500">Examples: Acer Aspire 1, Lenovo IdeaPad 1</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">8GB</h5>
+                                <p class="text-gray-700 mb-2">Good for students, office work, light gaming</p>
+                                <p class="text-sm text-gray-500">Examples: Dell Inspiron 15, MacBook Air M1</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">16GB</h5>
+                                <p class="text-gray-700 mb-2">Ideal for gaming, video editing, multitasking</p>
+                                <p class="text-sm text-gray-500">Examples: ASUS ROG Zephyrus G14, Dell XPS 15</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">32GB+</h5>
+                                <p class="text-gray-700 mb-2">For pros (3D modeling, AI, heavy editing)</p>
+                                <p class="text-sm text-gray-500">Examples: MacBook Pro 16" M2 Max, MSI Creator Z16</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-xl font-semibold mb-4">Upgradable vs. Non-Upgradable RAM:</h4>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="flex-1 border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">Upgradable</h5>
+                                <p class="text-gray-700">You can add more later</p>
+                                <p class="text-sm text-gray-500">Examples: Lenovo ThinkPad, Dell XPS</p>
+                            </div>
+                            <div class="flex-1 border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                <h5 class="font-bold mb-2">Soldered (Non-Upgradable)</h5>
+                                <p class="text-gray-700">Fixed on the motherboard, no upgrades</p>
+                                <p class="text-sm text-gray-500">Examples: MacBook Air, ultrabooks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Storage Section -->
+                <div id="storage" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hdd text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Storage: SSD vs. HDD – Where Your Files Live</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="mb-4">Storage is the space for your files, apps, and system. Two main types:</p>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                                <div class="rounded-full bg-gray-200 h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-hdd text-gray-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-bold mb-2 text-center">HDD (Hard Disk Drive)</h5>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li>Spinning disks, slower but cheaper</li>
+                                    <li>Great for big storage needs</li>
+                                </ul>
+                                <p class="text-sm text-gray-500 mt-2">Examples: HP 15 (1TB HDD), Lenovo V15 (500GB HDD)</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                                <div class="rounded-full bg-gray-200 h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-solid fa-sd-card text-gray-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-bold mb-2 text-center">SSD (Solid State Drive)</h5>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li>No moving parts, much faster, more reliable</li>
+                                    <li>Boosts boot times and app loading</li>
+                                </ul>
+                                <p class="text-sm text-gray-500 mt-2">Examples: Dell XPS 13 (512GB SSD), Samsung Galaxy Book2 Pro (256GB SSD)</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                                <div class="rounded-full bg-gray-200 h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-bolt text-gray-600 text-2xl"></i>
+                                </div>
+                                <h5 class="font-bold mb-2 text-center">NVMe SSD (Ultra-Fast)</h5>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li>Top-tier speed for gaming/pro work</li>
+                                    <li>5-7x faster than regular SSDs</li>
+                                </ul>
+                                <p class="text-sm text-gray-500 mt-2">Examples: ASUS ROG Zephyrus G14 (1TB NVMe SSD), Razer Blade 15 (2TB NVMe SSD)</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-xl font-semibold mb-4">Upgradability:</h4>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="flex-1 border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                                <h5 class="font-bold mb-2">Upgradable Storage</h5>
+                                <p class="text-gray-700">Some laptops let you swap storage</p>
+                                <p class="text-sm text-gray-500">Example: Lenovo Legion 5</p>
+                            </div>
+                            <div class="flex-1 border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                                <h5 class="font-bold mb-2">Non-Upgradable Storage</h5>
+                                <p class="text-gray-700">Storage is soldered to the motherboard</p>
+                                <p class="text-sm text-gray-500">Example: MacBooks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Processor Section -->
+                <div id="processor" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-microchip text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Processor (CPU) – The Brain</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="mb-4">The CPU runs all your tasks. Newer generations and higher numbers mean better performance.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intel/intel-original.svg" class="h-6 w-6 mr-2" alt="Intel Logo">
+                                    Intel CPUs
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Core i3</h5>
+                                        <p class="text-gray-700 text-sm">Basic use</p>
+                                        <p class="text-xs text-gray-500">Examples: HP 15, Dell Vostro 14</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Core i5</h5>
+                                        <p class="text-gray-700 text-sm">Everyday tasks</p>
+                                        <p class="text-xs text-gray-500">Examples: ASUS VivoBook S15, Lenovo Yoga 7i</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Core i7</h5>
+                                        <p class="text-gray-700 text-sm">Gaming/pro work</p>
+                                        <p class="text-xs text-gray-500">Examples: Dell XPS 15, MSI Prestige 14</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Core i9</h5>
+                                        <p class="text-gray-700 text-sm">Extreme tasks</p>
+                                        <p class="text-xs text-gray-500">Examples: Alienware x17, ASUS ROG Scar 18</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amd/amd-original.svg" class="h-6 w-6 mr-2" alt="AMD Logo">
+                                    AMD CPUs
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-red-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Ryzen 3</h5>
+                                        <p class="text-gray-700 text-sm">Budget</p>
+                                        <p class="text-xs text-gray-500">Examples: Lenovo IdeaPad 3, Acer Aspire 5</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-red-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Ryzen 5</h5>
+                                        <p class="text-gray-700 text-sm">Balanced</p>
+                                        <p class="text-xs text-gray-500">Examples: HP Envy x360, ASUS TUF Gaming A15</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-red-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Ryzen 7</h5>
+                                        <p class="text-gray-700 text-sm">High-end</p>
+                                        <p class="text-xs text-gray-500">Examples: Lenovo Legion 5, ASUS ROG Zephyrus G14</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-red-500 transition-colors">
+                                        <h5 class="font-bold mb-1">Ryzen 9</h5>
+                                        <p class="text-gray-700 text-sm">Pro-level</p>
+                                        <p class="text-xs text-gray-500">Examples: ASUS ROG Strix Scar 16, MSI Raider GE78</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <i class="fab fa-apple text-gray-800 mr-2"></i>
+                                    Apple Silicon
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-gray-800 transition-colors">
+                                        <h5 class="font-bold mb-1">M1</h5>
+                                        <p class="text-gray-700 text-sm">First-gen Apple chip</p>
+                                        <p class="text-xs text-gray-500">Examples: MacBook Air M1, MacBook Pro 13" M1</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-gray-800 transition-colors">
+                                        <h5 class="font-bold mb-1">M2</h5>
+                                        <p class="text-gray-700 text-sm">Second-gen Apple chip</p>
+                                        <p class="text-xs text-gray-500">Examples: MacBook Air M2, MacBook Pro 14" M2</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-gray-800 transition-colors">
+                                        <h5 class="font-bold mb-1">M3</h5>
+                                        <p class="text-gray-700 text-sm">Third-gen Apple chip</p>
+                                        <p class="text-xs text-gray-500">Examples: MacBook Pro M3, iMac M3</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-gray-800 transition-colors">
+                                        <h5 class="font-bold mb-1">M2/M3 Pro/Max/Ultra</h5>
+                                        <p class="text-gray-700 text-sm">High-end Apple chips</p>
+                                        <p class="text-xs text-gray-500">Examples: MacBook Pro 16" M2 Max, Mac Studio M2 Ultra</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-yellow-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        <strong>Pro Tip:</strong> Newer generations are better! A 13th Gen Intel i5 can outperform an older 10th Gen i7 in many tasks.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graphics Card Section -->
+                <div id="graphics" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-desktop text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Graphics Card (GPU) – Visual Power</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="mb-4">The GPU handles visuals—crucial for gaming, video editing, and design.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="border border-gray-200 rounded-lg p-6 hover:border-red-500 transition-colors">
+                                <h4 class="text-xl font-semibold mb-4">Integrated Graphics</h4>
+                                <p class="mb-4">Built into the CPU, good for basic tasks</p>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> Intel Iris Xe</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> AMD Radeon Vega</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> Apple M-series GPU</li>
+                                </ul>
+                                <p class="mt-4 text-sm text-gray-500">Examples: MacBook Air, Microsoft Surface Laptop 5</p>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-6 hover:border-red-500 transition-colors">
+                                <h4 class="text-xl font-semibold mb-4">Dedicated Graphics</h4>
+                                <p class="mb-4">Separate card, powerful for gaming and pro work</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <div class="w-24 text-sm font-medium">Entry-Level:</div>
+                                        <div class="flex-1">NVIDIA GTX 1650</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-24 text-sm font-medium">Mid-Range:</div>
+                                        <div class="flex-1">NVIDIA RTX 3060</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-24 text-sm font-medium">High-End:</div>
+                                        <div class="flex-1">NVIDIA RTX 4090</div>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-sm text-gray-500">Examples: ASUS ROG Strix Scar 18, MSI Titan GT77</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-exclamation-circle text-red-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-red-700">
+                                        <strong>Note:</strong> No dedicated graphics card? Your laptop relies on integrated graphics—fine for everyday use, not ideal for serious gaming or professional video editing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Display Section -->
+                <div id="display" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-indigo-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-tv text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Display – What You See</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="text-lg font-semibold mb-4">Display Types</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-200 text-gray-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">LCD/LED</span>
+                                        <div>
+                                            <p class="text-sm">Affordable, decent colors</p>
+                                            <p class="text-xs text-gray-500">HP Envy x360, Acer Aspire 5</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-200 text-blue-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">IPS</span>
+                                        <div>
+                                            <p class="text-sm">Better colors/viewing angles</p>
+                                            <p class="text-xs text-gray-500">MacBook Pro 16", Lenovo Yoga 7i</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">OLED</span>
+                                        <div>
+                                            <p class="text-sm">Best contrast, vibrant colors</p>
+                                            <p class="text-xs text-gray-500">Dell XPS 13 OLED, ASUS ZenBook 14 OLED</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="text-lg font-semibold mb-4">Resolution</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-200 text-gray-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">1080p (FHD)</span>
+                                        <div>
+                                            <p class="text-sm">Standard resolution</p>
+                                            <p class="text-xs text-gray-500">ASUS VivoBook 15</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-200 text-blue-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">1440p (QHD)</span>
+                                        <div>
+                                            <p class="text-sm">Sharper image quality</p>
+                                            <p class="text-xs text-gray-500">Dell XPS 17</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">4K (UHD)</span>
+                                        <div>
+                                            <p class="text-sm">Ultra-clear, crisp details</p>
+                                            <p class="text-xs text-gray-500">MacBook Pro 16", Dell XPS 15 4K</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="text-lg font-semibold mb-4">Refresh Rate</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-200 text-gray-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">60Hz</span>
+                                        <div>
+                                            <p class="text-sm">Standard, everyday use</p>
+                                            <p class="text-xs text-gray-500">Dell Inspiron 15, most laptops</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-200 text-blue-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">120Hz</span>
+                                        <div>
+                                            <p class="text-sm">Smoother gaming/scrolling</p>
+                                            <p class="text-xs text-gray-500">MacBook Pro 14", Surface Laptop Studio</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-200 text-purple-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">144Hz+</span>
+                                        <div>
+                                            <p class="text-sm">For competitive gaming</p>
+                                            <p class="text-xs text-gray-500">ASUS ROG Strix G15 (240Hz)</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-indigo-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-indigo-700">
+                                        <strong>Display Tip:</strong> For creative work, prioritize color accuracy (IPS/OLED). For gaming, higher refresh rates (144Hz+) provide smoother gameplay. For general use, a good 1080p IPS display is sufficient.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ports Section -->
+                <div id="ports" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-plug text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Ports & Connectivity</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="grid md:grid-cols-3 gap-6 mb-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">USB Ports</h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-usb text-gray-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">USB 2.0</h5>
+                                                <p class="text-xs text-gray-600">480 Mbps, for mice & keyboards</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-usb text-blue-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">USB 3.0/3.1</h5>
+                                                <p class="text-xs text-gray-600">5-10 Gbps, for external drives</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-bolt text-indigo-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">USB-C/Thunderbolt</h5>
+                                                <p class="text-xs text-gray-600">Up to 40 Gbps, versatile</p>
+                                                <p class="text-xs text-gray-500">MacBook Pro, Dell XPS 15</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">Video Outputs</h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-desktop text-red-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">HDMI</h5>
+                                                <p class="text-xs text-gray-600">Modern, HD video/audio</p>
+                                                <p class="text-xs text-gray-500">Most laptops</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-tv text-blue-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">DisplayPort</h5>
+                                                <p class="text-xs text-gray-600">High refresh rates, gaming laptops</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-square text-gray-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">VGA</h5>
+                                                <p class="text-xs text-gray-600">Older, lower quality (rare now)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">Network Connectivity</h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-wifi text-green-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">Wi-Fi</h5>
+                                                <p class="text-xs text-gray-600">Wi-Fi 6/6E (latest standard)</p>
+                                                <p class="text-xs text-gray-500">All modern laptops</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-network-wired text-blue-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">Ethernet (LAN)</h5>
+                                                <p class="text-xs text-gray-600">Gigabit (1000 Mbps) standard</p>
+                                                <p class="text-xs text-gray-500">Lenovo IdeaPad 3, Dell XPS 15</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-500 transition-colors">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-bluetooth text-indigo-500 mr-3"></i>
+                                            <div>
+                                                <h5 class="font-bold text-sm">Bluetooth</h5>
+                                                <p class="text-xs text-gray-600">Bluetooth 5.0+ in most new laptops</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-yellow-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        <strong>Port Consideration:</strong> Thin and light laptops often have fewer ports. Consider a USB-C hub or docking station if you need to connect multiple devices.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Keyboards & Security Section -->
+                <div id="keyboards" class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-teal-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-keyboard text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Keyboards & Security</h3>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">Keyboard Types</h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Full-Size (With Numpad)</h5>
+                                        <p class="text-gray-700 text-sm">104-108 keys, ideal for data entry</p>
+                                        <p class="text-xs text-gray-500">Examples: Dell Inspiron 15 3000, HP Pavilion 17</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Compact (No Numpad)</h5>
+                                        <p class="text-gray-700 text-sm">78-88 keys, more portable</p>
+                                        <p class="text-xs text-gray-500">Examples: MacBook Air M2, ASUS ZenBook 14</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Mechanical Keyboards</h5>
+                                        <p class="text-gray-700 text-sm">Better feedback, usually in gaming laptops</p>
+                                        <p class="text-xs text-gray-500">Examples: Razer Blade 15, MSI GT77 Titan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-4">Security Features</h4>
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Fingerprint Reader</h5>
+                                        <p class="text-gray-700 text-sm">Convenient biometric login</p>
+                                        <p class="text-xs text-gray-500">Examples: Lenovo ThinkPad X1 Carbon, HP Spectre x360</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Face Recognition</h5>
+                                        <p class="text-gray-700 text-sm">Hands-free login (Windows Hello)</p>
+                                        <p class="text-xs text-gray-500">Examples: Microsoft Surface Laptop 5, Dell XPS 15</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-4 hover:border-teal-500 transition-colors">
+                                        <h5 class="font-bold mb-2">Physical Security</h5>
+                                        <p class="text-gray-700 text-sm">Kensington lock slot, webcam covers</p>
+                                        <p class="text-xs text-gray-500">Examples: Lenovo ThinkPad series, HP EliteBook</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-teal-50 border-l-4 border-teal-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-teal-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-teal-700">
+                                        <strong>Keyboard Tip:</strong> If you do lots of numerical data entry, a full-size keyboard with numpad is essential. For better typing experience, look for laptops with 1.5mm+ key travel.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iPhone Essentials Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 section-heading" data-aos="fade-up">Part 2: iPhone Essentials</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <!-- Storage Section -->
+                    <div id="iphone-storage" class="col-span-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+                            <div class="bg-blue-500 p-4 text-white">
+                                <div class="flex items-center">
+                                    <i class="fas fa-database text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">Storage Options</h3>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-blue-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">128GB</h4>
+                                        <p class="text-xs text-gray-600">Basic storage, casual use</p>
+                                        <p class="text-xs text-gray-500">iPhone 15, iPhone SE 2022</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-blue-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">256GB</h4>
+                                        <p class="text-xs text-gray-600">Good for most users</p>
+                                        <p class="text-xs text-gray-500">iPhone 14 Pro, iPhone 15</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-blue-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">512GB+</h4>
+                                        <p class="text-xs text-gray-600">Heavy users, lots of media</p>
+                                        <p class="text-xs text-gray-500">iPhone 15 Pro Max, OnePlus 11</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Battery Section -->
+                    <div id="battery" class="col-span-1" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+                            <div class="bg-green-500 p-4 text-white">
+                                <div class="flex items-center">
+                                    <i class="fas fa-battery-full text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">Battery Health</h3>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <p class="mb-4 text-sm">Batteries degrade over time. Aim for 80%+ health when buying used.</p>
+                                
+                                <h4 class="font-bold text-sm mb-2">Battery Tips:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Avoid overcharging for long periods</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Keep battery between 20%-80% when possible</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Avoid extreme temperatures</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="mt-4">
+                                    <p class="text-xs text-gray-500">Examples:</p>
+                                    <p class="text-xs text-gray-600">iPhone 15 Pro Max (29-hour video playback)</p>
+                                    <p class="text-xs text-gray-600">Samsung Galaxy S23 Ultra (45W fast charging)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Display Section -->
+                    <div id="iphone-display" class="col-span-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+                            <div class="bg-purple-500 p-4 text-white">
+                                <div class="flex items-center">
+                                    <i class="fas fa-mobile-screen text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">Display Technology</h3>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-purple-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">OLED Displays</h4>
+                                        <p class="text-xs text-gray-600">Vibrant colors, perfect blacks, better battery life</p>
+                                        <p class="text-xs text-gray-500">iPhone 15 Pro, Samsung Galaxy S23</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-purple-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">LCD Displays</h4>
+                                        <p class="text-xs text-gray-600">More affordable, still decent quality</p>
+                                        <p class="text-xs text-gray-500">iPhone SE, budget phones</p>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-purple-500 transition-colors">
+                                        <h4 class="font-bold text-sm mb-1">ProMotion (120Hz)</h4>
+                                        <p class="text-xs text-gray-600">Smoother scrolling and animations</p>
+                                        <p class="text-xs text-gray-500">iPhone 14 Pro/15 Pro, high-end Androids</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4">iPhone vs Android: Quick Comparison</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="py-2 px-4 text-left">Feature</th>
+                                    <th class="py-2 px-4 text-left">iPhone</th>
+                                    <th class="py-2 px-4 text-left">Android</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">Ecosystem</td>
+                                    <td class="py-2 px-4 border-b">Tightly integrated with Apple products</td>
+                                    <td class="py-2 px-4 border-b">More flexibility, works across brands</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">Customization</td>
+                                    <td class="py-2 px-4 border-b">Limited</td>
+                                    <td class="py-2 px-4 border-b">Extensive</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">Software Updates</td>
+                                    <td class="py-2 px-4 border-b">5+ years of updates</td>
+                                    <td class="py-2 px-4 border-b">Varies by manufacturer (1-4 years)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">App Quality</td>
+                                    <td class="py-2 px-4 border-b">Generally more polished</td>
+                                    <td class="py-2 px-4 border-b">Huge variety, quality varies</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">Price Range</td>
+                                    <td class="py-2 px-4 border-b">Mostly premium ($429-$1,599)</td>
+                                    <td class="py-2 px-4 border-b">All ranges ($100-$1,800+)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 section-heading" data-aos="fade-up">Part 3: Accessories</h2>
+                
+                <!-- External Monitors Section -->
+                <div id="monitors" class="mb-12" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-desktop text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">External Monitors</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h4 class="text-lg font-semibold mb-4">Monitor Types</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <span class="bg-gray-200 text-gray-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">1080p</span>
+                                    <div>
+                                        <p class="text-sm font-medium">Budget-friendly</p>
+                                        <p class="text-xs text-gray-500">Example: Dell SE2422H</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-200 text-blue-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">1440p</span>
+                                    <div>
+                                        <p class="text-sm font-medium">Productivity sweet spot</p>
+                                        <p class="text-xs text-gray-500">Example: LG UltraGear 27GL83A</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-purple-200 text-purple-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">4K</span>
+                                    <div>
+                                        <p class="text-sm font-medium">Pro work/gaming</p>
+                                        <p class="text-xs text-gray-500">Example: ASUS ProArt PA32UCX</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-green-200 text-green-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">Ultrawide</span>
+                                    <div>
+                                        <p class="text-sm font-medium">Multitasking</p>
+                                        <p class="text-xs text-gray-500">Example: LG 34WN80C-B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h4 class="text-lg font-semibold mb-4">Key Monitor Specs</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <span class="bg-gray-200 text-gray-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">Panel Type</span>
+                                    <div>
+                                        <p class="text-sm font-medium">IPS: Best colors | VA: Best contrast | TN: Fast response</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-blue-200 text-blue-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">Refresh Rate</span>
+                                    <div>
+                                        <p class="text-sm font-medium">60Hz: Standard | 144Hz+: Gaming</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-purple-200 text-purple-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">Response Time</span>
+                                    <div>
+                                        <p class="text-sm font-medium">1-5ms: Gaming | 5-10ms: General use</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="bg-green-200 text-green-800 text-xs font-medium rounded px-2 py-1 mr-2 mt-1">Connectivity</span>
+                                    <div>
+                                        <p class="text-sm font-medium">HDMI, DisplayPort, USB-C (newer models)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cooling & Stands Section -->
+                <div id="cooling" class="mb-12" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-fan text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Cooling Fans & Stands</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="p-6">
+                                <div class="flex justify-center mb-4">
+                                    <div class="rounded-full bg-green-100 p-4">
+                                        <i class="fas fa-fan text-green-500 text-2xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg font-semibold text-center mb-4">Cooling Pads</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>Multiple fans for better airflow</li>
+                                    <li>Often includes USB ports</li>
+                                    <li>Good for gaming laptops</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-4">Example: Cooler Master Notepal X3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="p-6">
+                                <div class="flex justify-center mb-4">
+                                    <div class="rounded-full bg-blue-100 p-4">
+                                        <i class="fas fa-wind text-blue-500 text-2xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg font-semibold text-center mb-4">External Fans</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>Compact, portable cooling</li>
+                                    <li>Attaches to laptop vents</li>
+                                    <li>Draws hot air out</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-4">Example: OPOLAR Laptop Cooler</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="p-6">
+                                <div class="flex justify-center mb-4">
+                                    <div class="rounded-full bg-purple-100 p-4">
+                                        <i class="fas fa-laptop-house text-purple-500 text-2xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-lg font-semibold text-center mb-4">Laptop Stands</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>Improves ergonomics</li>
+                                    <li>Better passive cooling</li>
+                                    <li>Available in adjustable or fixed heights</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-4">Examples: Rain Design mStand, Nulaxy Laptop Stand</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Docking Stations Section -->
+                <div id="docking" class="mb-12" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-indigo-500 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-plug text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Docking Stations</h3>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="font-bold mb-2">USB-C Hubs</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>Adds multiple USB ports</li>
+                                    <li>Often includes HDMI, SD card readers</li>
+                                    <li>Portable, budget-friendly</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-2">Example: Anker USB-C Hub</p>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="font-bold mb-2">Thunderbolt Docks</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>Premium, high-speed connections</li>
+                                    <li>Multiple display outputs</li>
+                                    <li>Power delivery up to 100W</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-2">Example: CalDigit TS3 Plus, OWC Thunderbolt Dock</p>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-500 transition-colors">
+                                <h4 class="font-bold mb-2">Universal Docks</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>Works with USB-A and USB-C</li>
+                                    <li>Often includes Ethernet, audio ports</li>
+                                    <li>Good for office setups</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 mt-2">Example: Dell Universal Dock, Kensington SD4700P</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 mt-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-indigo-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-indigo-700">
+                                        <strong>Dock Tip:</strong> Check the power delivery (PD) specs of any dock you're considering. For laptops with USB-C charging, look for docks that provide at least 60W (or 85W+ for high-performance laptops).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buying Tips Section -->
+    <section id="buying-tips" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 section-heading" data-aos="fade-up">Part 5: Buying Tips</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-laptop text-blue-500 mr-3"></i>
+                            For Laptops
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow">
+                                <h4 class="font-bold text-lg mb-2">Everyday Use</h4>
+                                <ul class="space-y-1 mb-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>8GB RAM, 256GB SSD, i5/Ryzen 5</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>IPS display for better colors</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>8+ hour battery life</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-600">Example: Lenovo IdeaPad 5, HP Envy x360</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow">
+                                <h4 class="font-bold text-lg mb-2">Gaming</h4>
+                                <ul class="space-y-1 mb-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>16GB RAM, dedicated GPU (RTX 3060+)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Fast SSD, preferably NVMe</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>144Hz+ display</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-600">Example: ASUS ROG Strix, Lenovo Legion 5</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow">
+                                <h4 class="font-bold text-lg mb-2">Professionals</h4>
+                                <ul class="space-y-1 mb-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>32GB RAM, i9/Ryzen 9/M2 Pro</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Large, fast storage (1TB+ NVMe SSD)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>OLED/high-resolution display</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-600">Example: MacBook Pro 16", Dell XPS 15 OLED</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-mobile-alt text-purple-500 mr-3"></i>
+                            For iPhones & Accessories
+                        </h3>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow">
+                                <h4 class="font-bold text-lg mb-2">Casual iPhone User</h4>
+                                <ul class="space-y-1 mb-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>128GB storage is usually sufficient</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Standard models have great cameras</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Look for models with good battery life</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-600">Example: iPhone 15, iPhone SE (budget option)</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow">
+                                <h4 class="font-bold text-lg mb-2">Power Users</h4>
+                                <ul class="space-y-1 mb-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>256GB+ storage for photos/videos</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Pro models for better cameras/performance</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>OLED display with ProMotion</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-600">Example: iPhone 15 Pro/Pro Max</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-lg font-bold mb-4">Essential Add-Ons</h4>
+                        <div class="bg-white rounded-lg shadow-md p-5">
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-gamepad text-blue-500 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">For Gamers:</span>
+                                        <span class="text-sm text-gray-600 ml-1">Cooling pad, gaming mouse, headset</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-briefcase text-indigo-500 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">For Professionals:</span>
+                                        <span class="text-sm text-gray-600 ml-1">Docking station, external monitor, ergonomic accessories</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-plane text-green-500 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">For Travelers:</span>
+                                        <span class="text-sm text-gray-600 ml-1">Portable stand, power bank, slim USB-C hub</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4">Final Buying Checklist</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3">Before You Buy:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-search text-blue-500 mr-2 mt-1"></i>
+                                    <span>Research reviews from trusted sources</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-list text-blue-500 mr-2 mt-1"></i>
+                                    <span>List your specific needs and budget</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-sync-alt text-blue-500 mr-2 mt-1"></i>
+                                    <span>Check for upcoming releases/sales</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-tools text-blue-500 mr-2 mt-1"></i>
+                                    <span>Consider future upgrade options</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-3">During Purchase:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-green-500 mr-2 mt-1"></i>
+                                    <span>Check warranty terms</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-tag text-green-500 mr-2 mt-1"></i>
+                                    <span>Look for education/professional discounts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-box-open text-green-500 mr-2 mt-1"></i>
+                                    <span>Verify return policy</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-credit-card text-green-500 mr-2 mt-1"></i>
+                                    <span>Consider purchase protection via credit card</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4">The Ultimate Guide to Buying Tech</h2>
+                <p class="mb-6">We hope this guide helps you make an informed decision on your next tech purchase!</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-white hover:text-blue-400 transition-colors">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-400 transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                </div>
+                <p class="mt-6 text-gray-400 text-sm">Created with ♥ for tech enthusiasts everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="btn-scroll-top no-print" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to Top button
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
